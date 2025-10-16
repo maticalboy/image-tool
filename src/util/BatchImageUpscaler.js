@@ -20,8 +20,6 @@ class BatchImageUpscaler extends EventTarget {
     handleImageUpload(file, scaleFactor) {
         this.scaleFactor = scaleFactor
         this.addImageToQueue(file);
-        // 更新队列显示
-        this.updateQueueDisplay();
     }
 
     /**
@@ -182,10 +180,8 @@ class BatchImageUpscaler extends EventTarget {
         this.processingIndex = -1;
 
         // 更新队列显示
-        setTimeout(()=>{
-            this.updateQueueDisplay();
-        },1000)
-        
+        this.updateQueueDisplay();
+
 
         // // 显示完成消息
         // alert(`批量处理完成！成功处理 ${this.getCompletedCount()} 张图片`);
@@ -317,7 +313,7 @@ class BatchImageUpscaler extends EventTarget {
     /**
      * @description: 重置状态
      * @return {*}
-     */    
+     */
     resetStatus() {
         for (let i = 0; i < this.imageQueue.length; i++) {
             const task = this.imageQueue[i];
