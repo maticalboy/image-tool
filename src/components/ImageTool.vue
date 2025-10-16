@@ -188,6 +188,13 @@ export default {
             this.updateProgress.bind(this)
         );
     },
+    watch:{
+        'formImage.scaleFactor':{
+            handler(newValue,oldValue){
+                this.updateScaleFactor()
+            }
+        }
+    },
     data() {
         return {
             percent: 0,
@@ -216,6 +223,15 @@ export default {
     methods: {
         formatTooltip(val) {
             return val + "%";
+        },
+
+        /**
+         * @description: 更新放大分辨率
+         * @return {*}
+         */        
+        updateScaleFactor(){
+            this.BatchImageUpscaler.scaleFactor = this.formImage.scaleFactor
+            this.BatchImageUpscaler.updateQueueDisplay()
         },
 
         /**
