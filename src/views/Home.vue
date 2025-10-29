@@ -2,18 +2,20 @@
     <div style="height: 100%">
         <el-container>
             <el-header>Header</el-header>
-            <el-main>
-                <image-tool></image-tool>
+            <el-main style="background-color: #f8f8f8;">
+                <!-- <batch-image-upscaler></batch-image-upscaler> -->
+                 <image-color-picker></image-color-picker>
             </el-main>
         </el-container>
     </div>
 </template>
 <script>
-import ImageTool from '@/components/ImageTool.vue'
+import BatchImageUpscaler from '@/components/BatchImageUpscaler.vue'
+import ImageColorPicker from '@/components/ImageColorPicker.vue';
 export default {
     components: {
-        // ImageTool: () => import("@/components/ImageTool.vue"),
-        ImageTool
+        BatchImageUpscaler,
+        ImageColorPicker,
     },
     data() {
         return {};
